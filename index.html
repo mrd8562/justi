@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="utf-8">
@@ -38,16 +38,16 @@
                     <div class="col-lg-7 text-left">
                         <div class="h-100 d-inline-flex align-items-center py-2 px-3">
                             <i class="fa fa-envelope text-primary mr-2"></i>
-                            <small>info@example.com</small>
+                            <a href="mailto:bolbatgennadij@gmail.com"><small>bolbatgennadij@gmail.com</small></a>
                         </div>
                         <div class="h-100 d-inline-flex align-items-center py-2 px-2">
                             <i class="fa fa-phone-alt text-primary mr-2"></i>
-                            <small>+375 хх ххх хх хх</small>
+                            <a href="tel:+375333092167"><small>+375 33 309-21-67</small></a>
                         </div>
                     </div>
                     <div class="col-lg-5 text-right">
                         <div class="d-inline-flex align-items-center p-2">
-                            <a class="btn btn-sm btn-outline-primary btn-sm-square mr-2" href="">
+                            <!-- <a class="btn btn-sm btn-outline-primary btn-sm-square mr-2" href="">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
                             <a class="btn btn-sm btn-outline-primary btn-sm-square mr-2" href="">
@@ -61,7 +61,7 @@
                             </a>
                             <a class="btn btn-sm btn-outline-primary btn-sm-square mr-2" href="">
                                 <i class="fab fa-youtube"></i>
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                 </div>
@@ -74,10 +74,10 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="about.html" class="nav-item nav-link active">Обо мне</a>
+                            <!-- <a href="about.html" class="nav-item nav-link active">Обо мне</a> -->
                             <a href="service.html" class="nav-item nav-link">Услуги</a>
-                            <a href="team.html" class="nav-item nav-link">Гонорар</a>
-                            <a href="team.html" class="nav-item nav-link">Отзывы</a>
+                            <!-- <a href="team.html" class="nav-item nav-link">Гонорар</a>
+                            <a href="team.html" class="nav-item nav-link">Отзывы</a> -->
                             <!-- <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dropdown</a>
                                 <div class="dropdown-menu rounded-0 m-0">
@@ -105,9 +105,9 @@
                     <img class="position-absolute w-100 h-100" src="img/carousel-1.jpg" style="object-fit: cover;">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
-                            <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Квалифицированная юридическая помощь в</h4>
-                            <h3 class="display-2 text-capitalize text-white mb-4">  Новополоцке и РБ</h3>
-                            <a class="btn btn-primary py-3 px-5 mt-2" href="#">Консультация</a>
+                            <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Услуги адвоката и квалифицированная юридическая помощь в</h4>
+                            <h3 class="display-2 text-capitalize text-white mb-4">Новополоцке и РБ</h3>
+                            <a class="btn btn-primary py-3 px-5 mt-2" href="#">Подробнее</a>
                         </div>
                     </div>
                 </div>
@@ -142,12 +142,12 @@
         <div class="container py-5">
             <div class="row">
                 <div class="col-lg-5">
-                    <img class="img-fluid rounded" src="img/about.jpg" alt="">
+                    <img class="img-fluid rounded" src="img/vesi_1.jpg" alt="vesi">
                 </div>
                 <div class="col-lg-7 mt-4 mt-lg-0">
                     <h2 class="position-relative text-center bg-white text-primary rounded p-3 mt-4 mb-4 d-none d-lg-block" style="width: 350px; margin-left: -205px;">25 лет опыта</h2>
                     <h6 class="text-uppercase">Узнайте обо мне</h6>
-                    <h1 class="mb-4">Предоставляем надежные и эффективные юридические услуги.</p>
+                    <h1 class="mb-4">Предоставляю услуги адвоката, оказываю юридическую помощь.</p>
                     <a href="" class="btn btn-primary mt-2">Узнать больше</a>
                 </div>
             </div>
@@ -156,17 +156,219 @@
     <!-- About End -->
 
 
+    <style>
+        /* карточка с мягкой тенью и скруглением */
+        .lawyer-card {
+            border: none;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+    
+        .lawyer-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 32px rgba(0, 0, 0, 0.12);
+        }
+    
+        /* верхняя полоса – акцент (юридический стиль) */
+        .card-accent {
+            height: 6px;
+            background: linear-gradient(90deg, #837254, #B49C73, #837254);
+        }
+    
+        /* стили для заголовка и имени */
+        .lawyer-name {
+            font-weight: 700;
+            font-size: 1.75rem;
+            color: #1e2a3e;
+            letter-spacing: -0.3px;
+        }
+    
+        .badge-profession {
+            background-color: #eef2fa;
+            color: #B49C73;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            display: inline-block;
+        }
+    
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 1.1rem;
+        }
+    
+        .info-icon {
+            width: 38px;
+            height: 38px;
+            background-color: #eef3fc;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #B49C73;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+            transition: all 0.2s;
+        }
+    
+        .info-text {
+            flex: 1;
+            font-size: 1rem;
+            line-height: 1.45;
+            color: #B49C73;
+            word-break: break-word;
+        }
+    
+        .info-text strong {
+            font-weight: 600;
+            color: #0b2b42;
+        }
+    
+        .contact-link {
+            color: #B49C73;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.15s;
+        }
+    
+        .contact-link:hover {
+            color: #7c6c4f;
+            text-decoration: underline;
+        }
+    
+        /* разделитель */
+        .divider-light {
+            background-color: #e2e8f0;
+            height: 1px;
+            width: 100%;
+            margin: 1.2rem 0 1.2rem 0;
+        }
+    
+        /* кнопка-действие (необязательно, но добавляет интерактива) */
+        .btn-outline-law {
+            border: 1px solid #cbd5e1;
+            color: #B49C73;
+            border-radius: 60px;
+            padding: 0.4rem 1.2rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+    
+        .btn-outline-law:hover {
+            background-color: #B49C73;
+            border-color: #B49C73;
+            color: white;
+        }
+    
+        /* адаптивные правки */
+        @media (max-width: 576px) {
+            .lawyer-name {
+                font-size: 1.5rem;
+            }
+    
+            .info-icon {
+                width: 34px;
+                height: 34px;
+                font-size: 1rem;
+            }
+    
+            .info-text {
+                font-size: 0.92rem;
+            }
+        }
+    </style>
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10 col-12">
+                    <!-- Основной блок карточки адвоката -->
+                    <div class="card lawyer-card">
+                        <div class="card-accent"></div> <!-- декоративная верхняя полоса -->
+                        <div class="card-body p-4 p-md-5">
+                            <!-- Шапка: имя и статус -->
+                            <div class="d-flex flex-wrap justify-content-between align-items-start mb-3">
+                                <div>
+                                    <span class="badge-profession mb-2"><i class="fas fa-gavel mr-1"></i> Адвокат / Юридическая
+                                        консультация</span>
+                                    <h1 class="lawyer-name mt-2 mb-1">Болбат Геннадий Сергеевич</h1>
+                                </div>
+                                <!-- небольшая иконка-символ юстиции -->
+                                <div class="mt-2 mt-sm-0">
+                                    <div class="bg-light rounded-circle p-2 text-center" style="width: 56px; height: 56px;">
+                                        <i class="fas fa-balance-scale fa-2x text-secondary" style="color:#B49C73 !important;"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="divider-light"></div>
+
+                            <!-- Блок контактной информации и адреса (все обязательные поля) -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <!-- Телефон -->
+                                    <div class="info-item">
+                                        <div class="info-icon">
+                                            <i class="fas fa-phone-alt"></i>
+                                        </div>
+                                        <div class="info-text">
+                                            <strong>Телефон:</strong><br>
+                                            <a href="tel:+375333092167" class="contact-link">+375 33 309-21-67</a>
+                                        </div>
+                                    </div>
+
+                                    <!-- Адрес: юридическая консультация + улица, дом (полный адрес) -->
+                                    <div class="info-item">
+                                        <div class="info-icon">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </div>
+                                        <div class="info-text">
+                                            <strong>Адрес:</strong><br>
+                                            Юридическая консультация г. Новополоцка<br>
+                                            г. Новополоцк, ул. Молодежная, д. 146
+                                        </div>
+                                    </div>
+
+                                    <!-- Email -->
+                                    <div class="info-item">
+                                        <div class="info-icon">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                        <div class="info-text">
+                                            <strong>Email:</strong><br>
+                                            <a href="mailto:bolbatgennadij@gmail.com"
+                                                class="contact-link">bolbatgennadij@gmail.com</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
     <!-- Services Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-lg-6 mb-4">
                     <h6 class="text-uppercase">Услуги</h6>
-                    <h1 class="mb-4">Юридическая консультация и услуги адвоката</h1>
-                    <p>Я оказываю профессиональную защиту по уголовным делам и делам об административных правонарушениях</p>
+                    <h1 class="mb-4">Услуги адвоката и юридическая помощь, консультация</h1>
+                    <p>Я оказываю профессиональную защиту по уголовным делам и делам об административных правонарушениях. Представительство по гражданским и экономическим делам.</p>
                     <a href="" class="btn btn-primary mt-2">Больше услуг</a>
                 </div>
-                <div class="col-lg-9 pt-5 pt-lg-0">
+                <div class="col-lg-12 pt-5 pt-lg-0">
                     <div class="bg-primary rounded" style="height: 200px;"></div>
                     <div class="owl-carousel service-carousel position-relative" style="margin-top: -100px; padding: 0 30px;">
                         <div class="d-flex flex-column align-items-center text-center bg-white rounded pt-4">
@@ -306,7 +508,7 @@
 
 
     <!-- Action Start -->
-    <div class="container-fluid py-5">
+    <!-- <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="bg-action rounded" style="height: 500px;">
                 <div class="row h-100 align-items-center justify-content-center">
@@ -317,7 +519,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Action End -->
 
 
@@ -401,7 +603,7 @@
 
 
     <!-- Testimonial Start -->
-    <div class="container-fluid py-5">
+    <!-- <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="text-center pb-5">
                 <h6 class="text-uppercase">Отзывы</h6>
@@ -419,7 +621,7 @@
                             <p class="m-0">Должность</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- <div class="testimonial-item">
                     <div class="testimonial-text position-relative bg-secondary text-light rounded p-5 mb-4">
                         Sed ea amet kasd elitr stet nonumy, stet rebum et ipsum est duo elitr clita lorem
@@ -456,9 +658,9 @@
                         </div>
                     </div>
                 </div> -->
-            </div>
+            <!-- </div>
         </div>
-    </div>
+    </div> -->
     <!-- Testimonial End -->
 
 
@@ -470,7 +672,8 @@
                     <i class="fa fa-2x fa-map-marker-alt text-primary"></i>
                     <div class="ml-3">
                         <h5 class="text-white">Офис</h5>
-                        <p class="m-0">адрес</p>
+                        <p class="m-0">г. Новополоцка,
+                        г. Новополоцк, ул. Молодежная, д. 146</p>
                     </div>
                 </div>
             </div>
@@ -479,7 +682,7 @@
                     <i class="fa fa-2x fa-envelope-open text-primary"></i>
                     <div class="ml-3">
                         <h5 class="text-white">Email</h5>
-                        <p class="m-0">info@example.com</p>
+                        <p class="m-0"><a href="mailto:bolbatgennadij@gmail.com">bolbatgennadij@gmail.com</a></p>
                     </div>
                 </div>
             </div>
@@ -488,7 +691,7 @@
                     <i class="fa fa-2x fa-phone-alt text-primary"></i>
                     <div class="ml-3">
                         <h5 class="text-white">Телефон</h5>
-                        <p class="m-0">+375 33 333 33 33</p>
+                        <p class="m-0"><a href="tel:+375333092167">+375 33 309-21-67</a></p>
                     </div>
                 </div>
             </div>
@@ -506,7 +709,7 @@
                     <a class="btn btn-lg btn-outline-light btn-lg-square" href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 mb-5">
+            <!-- <div class="col-lg-3 col-md-6 mb-5">
                 <h4 class="font-weight-semi-bold text-primary mb-4">Популярные ссылки</h4>
                 <div class="d-flex flex-column justify-content-start">
                     <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Главная</a>
@@ -515,7 +718,7 @@
                     <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Контакты</a>
                     <a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>и тд</a>
                 </div>
-            </div>
+            </div> -->
             <div class="col-lg-3 col-md-6 mb-5">
                 <h4 class="font-weight-semi-bold text-primary mb-4">Быстрые ссылки</h4>
                 <div class="d-flex flex-column justify-content-start">

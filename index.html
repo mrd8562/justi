@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;500;700&display=swap" rel="stylesheet"> 
 
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- Libraries Stylesheet -->
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
@@ -137,221 +137,443 @@
     <!-- Carousel End -->
 
     <style>
-        /* карточка с мягкой тенью и скруглением */
-        .lawyer-card {
-            border: none;
-            border-radius: 24px;
-            overflow: hidden;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.02);
-        }
-    
-        .lawyer-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 32px rgba(0, 0, 0, 0.12);
-        }
-    
-        /* верхняя полоса – акцент (юридический стиль) */
-        .card-accent {
-            height: 6px;
-            background: linear-gradient(90deg, #837254, #B49C73, #837254);
-        }
-    
-        /* стили для заголовка и имени */
-        .lawyer-name {
-            font-weight: 700;
-            font-size: 1.75rem;
-            color: #1e2a3e;
-            letter-spacing: -0.3px;
-        }
-    
-        .badge-profession {
-            background-color: #eef2fa;
-            color: #B49C73;
-            font-weight: 500;
-            padding: 6px 14px;
+
+        /* современная карточка: стекло + нежная граница + свечение */
+        .lawyer-card-modern {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(0px);
             border-radius: 40px;
-            font-size: 0.85rem;
-            display: inline-block;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.2), 0 4px 12px rgba(0, 0, 0, 0.03);
+            transition: all 0.35s cubic-bezier(0.2, 0, 0, 1);
+            overflow: hidden;
         }
-    
-        .info-item {
+
+        .lawyer-card-modern:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 35px 50px -18px rgba(0, 0, 0, 0.25);
+            border-color: rgba(180, 156, 115, 0.3);
+        }
+
+        /* декоративная линия — тонкая, но с эффектом света */
+        .card-aurora {
+            height: 6px;
+            background: linear-gradient(90deg, #B49C73, #d9c5a2, #8f7a57, #B49C73);
+            background-size: 200% auto;
+            animation: shimmer 4s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        /* бейдж статуса — минимал + легкий градиент */
+        .badge-modern {
+            background: linear-gradient(135deg, #f5efe7 0%, #ece2d4 100%);
+            color: #7a643f;
+            font-weight: 600;
+            padding: 0.4rem 1.1rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            letter-spacing: -0.2px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(2px);
+            border: 0.5px solid rgba(180, 156, 115, 0.3);
+        }
+
+        /* имя — крупное, жирное, современное */
+        .lawyer-name-modern {
+            font-weight: 700;
+            font-size: 2.2rem;
+            background: linear-gradient(130deg, #1a2c3e 0%, #2d4a6e 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 0.25rem;
+        }
+
+        /* иконка-символ: эффект размытого стекла + легкая тень */
+        .icon-justice {
+            background: rgba(180, 156, 115, 0.12);
+            backdrop-filter: blur(4px);
+            border-radius: 32px;
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(180, 156, 115, 0.25);
+            transition: all 0.2s ease;
+        }
+
+        .icon-justice i {
+            color: #B49C73;
+            font-size: 2rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+        }
+
+        /* контейнер с информацией — новый минималистичный стиль */
+        .info-grid {
+            margin-top: 0.5rem;
+        }
+
+        .info-row-modern {
             display: flex;
             align-items: flex-start;
-            gap: 14px;
-            margin-bottom: 1.1rem;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: background 0.2s;
         }
-    
-        .info-icon {
-            width: 38px;
-            height: 38px;
-            background-color: #eef3fc;
-            border-radius: 50%;
-            display: inline-flex;
+
+        .info-row-modern:last-child {
+            border-bottom: none;
+        }
+
+        .info-icon-modern {
+            width: 48px;
+            height: 48px;
+            background: #f8f5f0;
+            border-radius: 28px;
+            display: flex;
             align-items: center;
             justify-content: center;
             color: #B49C73;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
             flex-shrink: 0;
-            margin-top: 2px;
-            transition: all 0.2s;
         }
-    
-        .info-text {
+
+        .info-row-modern:hover .info-icon-modern {
+            background: #B49C73;
+            color: white;
+            transform: scale(1.02);
+        }
+
+        .info-text-modern {
             flex: 1;
-            font-size: 1rem;
-            line-height: 1.45;
-            color: #B49C73;
+        }
+
+        .info-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            font-weight: 600;
+            color: #8f9aab;
+            margin-bottom: 4px;
+        }
+
+        .info-value {
+            font-weight: 500;
+            font-size: 1.08rem;
+            color: #1f2a3e;
             word-break: break-word;
         }
-    
-        .info-text strong {
-            font-weight: 600;
-            color: #0b2b42;
-        }
-    
-        .contact-link {
+
+        .contact-link-modern {
             color: #B49C73;
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.15s;
-        }
-    
-        .contact-link:hover {
-            color: #7c6c4f;
-            text-decoration: underline;
-        }
-    
-        /* разделитель */
-        .divider-light {
-            background-color: #e2e8f0;
-            height: 1px;
-            width: 100%;
-            margin: 1.2rem 0 1.2rem 0;
-        }
-    
-        /* кнопка-действие (необязательно, но добавляет интерактива) */
-        .btn-outline-law {
-            border: 1px solid #cbd5e1;
-            color: #B49C73;
-            border-radius: 60px;
-            padding: 0.4rem 1.2rem;
-            font-weight: 500;
+            font-weight: 600;
             transition: all 0.2s;
+            border-bottom: 1px dashed rgba(180, 156, 115, 0.4);
         }
-    
-        .btn-outline-law:hover {
-            background-color: #B49C73;
-            border-color: #B49C73;
-            color: white;
+
+        .contact-link-modern:hover {
+            color: #7c5e3a;
+            border-bottom-color: #7c5e3a;
         }
-    
-        /* адаптивные правки */
+
+        /* дополнительный акцентный элемент — кнопка скопировать, современный штрих */
+        .copy-tooltip {
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: transparent;
+            border: none;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #8f9aab;
+            transition: color 0.2s;
+            margin-left: 8px;
+        }
+
+        .copy-tooltip:hover {
+            color: #B49C73;
+        }
+
+        /* divider тонкий, почти невесомый */
+        .soft-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e2dcd0, transparent);
+            margin: 1rem 0 0.5rem;
+        }
+
+        /* рейтинг/подвал — легкий элемент доверия */
+        .trust-badge {
+            background: #ffffffd9;
+            backdrop-filter: blur(12px);
+            border-radius: 60px;
+            padding: 0.5rem 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-size: 0.8rem;
+            border: 0.5px solid rgba(180, 156, 115, 0.2);
+            color: #5e6a7c;
+        }
+
         @media (max-width: 576px) {
-            .lawyer-name {
-                font-size: 1.5rem;
+            .lawyer-name-modern {
+                font-size: 1.7rem;
             }
-    
-            .info-icon {
-                width: 34px;
-                height: 34px;
-                font-size: 1rem;
+            .info-icon-modern {
+                width: 44px;
+                height: 44px;
+                font-size: 1.1rem;
             }
-    
-            .info-text {
-                font-size: 0.92rem;
+            .info-value {
+                font-size: 0.95rem;
+            }
+            .icon-justice {
+                width: 52px;
+                height: 52px;
+            }
+            .icon-justice i {
+                font-size: 1.6rem;
+            }
+            .badge-modern {
+                font-size: 0.7rem;
             }
         }
     </style>
-    <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 col-md-10 col-12">
-                    <!-- Основной блок карточки адвоката -->
-                    <div class="card lawyer-card">
-                        <div class="card-accent"></div> <!-- декоративная верхняя полоса -->
-                        <div class="card-body p-4 p-md-5">
-                            <!-- Шапка: имя и статус -->
-                            <div class="d-flex flex-wrap justify-content-between align-items-start mb-3">
-                                <div>
-                                    <span class="badge-profession mb-2"><i class="fas fa-gavel mr-1"></i> Адвокат /
-                                        Юридическая
-                                        консультация</span>
-                                    <h1 class="lawyer-name mt-2 mb-1">Болбат Геннадий Сергеевич</h1>
+
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <!-- Современная карточка адвоката -->
+                <div class="lawyer-card-modern">
+                    <div class="card-aurora"></div>
+                    <div class="card-body p-4 p-md-5">
+                        <!-- Верхняя секция: имя + знак -->
+                        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-2">
+                            <div class="flex-grow-1">
+                                <div class="badge-modern mb-2">
+                                    <i class="fas fa-gavel" style="font-size: 0.75rem;"></i>
+                                    Адвокат / Юридическая консультация
                                 </div>
-                                <!-- небольшая иконка-символ юстиции -->
-                                <div class="mt-2 mt-sm-0">
-                                    <div class="bg-light rounded-circle p-2 text-center" style="width: 56px; height: 56px;">
-                                        <i class="fas fa-balance-scale fa-2x text-secondary"
-                                            style="color:#B49C73 !important;"></i>
+                                <h1 class="lawyer-name-modern">Болбат Геннадий Сергеевич</h1>
+                                <p class="text-muted mt-2" style="font-size: 0.9rem; letter-spacing: -0.2px;">
+                                    <i class="fas fa-check-circle" style="color:#B49C73; font-size: 0.8rem;"></i>
+                                    Стаж более 15 лет · Практика защиты и бизнес-право
+                                </p>
+                            </div>
+                            <div class="icon-justice">
+                                <i class="fas fa-scale-balanced"></i>
+                            </div>
+                        </div>
+        
+                        <div class="soft-divider"></div>
+        
+                        <!-- Информационные блоки: современные ряды с иконками -->
+                        <div class="info-grid mt-3">
+                            <!-- Телефон с возможностью копирования (интерактив) -->
+                            <div class="info-row-modern">
+                                <div class="info-icon-modern">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="info-text-modern">
+                                    <div class="info-label">Прямая связь</div>
+                                    <div class="info-value">
+                                        <a href="tel:+375333092167" class="contact-link-modern">+375 33 309-21-67</a>
+                                        <button class="copy-tooltip" onclick="copyToClipboard('+375333092167', this)"
+                                            title="Скопировать номер">
+                                            <i class="far fa-copy"></i> <span>Копировать</span>
+                                        </button>
+                                    </div>
+                                    <div class="small text-muted mt-1">Доступен в мессенджерах</div>
+                                </div>
+                            </div>
+        
+                            <!-- Адрес: полный + юридическая консультация -->
+                            <div class="info-row-modern">
+                                <div class="info-icon-modern">
+                                    <i class="fas fa-location-dot"></i>
+                                </div>
+                                <div class="info-text-modern">
+                                    <div class="info-label">Юридический адрес</div>
+                                    <div class="info-value">
+                                        Юридическая консультация г. Новополоцка<br>
+                                        г. Новополоцк, ул. Молодежная, д. 146
+                                    </div>
+                                    <div class="small text-muted mt-1">
+                                        <i class="fas fa-clock"></i> Пн–Пт: 09:00 – 18:00 (предварительная запись)
                                     </div>
                                 </div>
                             </div>
-    
-                            <div class="divider-light"></div>
-    
-                            <!-- Блок контактной информации и адреса (все обязательные поля) -->
-                            <div class="row">
-                                <div class="col-12">
-                                    <!-- Телефон -->
-                                    <div class="info-item">
-                                        <div class="info-icon">
-                                            <i class="fas fa-phone-alt"></i>
-                                        </div>
-                                        <div class="info-text">
-                                            <strong>Телефон:</strong><br>
-                                            <a href="tel:+375333092167" class="contact-link">+375 33 309-21-67</a>
-                                        </div>
+        
+                            <!-- Email -->
+                            <div class="info-row-modern">
+                                <div class="info-icon-modern">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="info-text-modern">
+                                    <div class="info-label">Электронная почта</div>
+                                    <div class="info-value">
+                                        <a href="mailto:bolbatgennadij@gmail.com"
+                                            class="contact-link-modern">bolbatgennadij@gmail.com</a>
+                                        <button class="copy-tooltip" onclick="copyToClipboard('bolbatgennadij@gmail.com', this)"
+                                            title="Скопировать email">
+                                            <i class="far fa-copy"></i> <span>Копировать</span>
+                                        </button>
                                     </div>
-    
-                                    <!-- Адрес: юридическая консультация + улица, дом (полный адрес) -->
-                                    <div class="info-item">
-                                        <div class="info-icon">
-                                            <i class="fas fa-map-marker-alt"></i>
-                                        </div>
-                                        <div class="info-text">
-                                            <strong>Адрес:</strong><br>
-                                            Юридическая консультация г. Новополоцка<br>
-                                            г. Новополоцк, ул. Молодежная, д. 146
-                                        </div>
-                                    </div>
-    
-                                    <!-- Email -->
-                                    <div class="info-item">
-                                        <div class="info-icon">
-                                            <i class="fas fa-envelope"></i>
-                                        </div>
-                                        <div class="info-text">
-                                            <strong>Email:</strong><br>
-                                            <a href="mailto:bolbatgennadij@gmail.com"
-                                                class="contact-link">bolbatgennadij@gmail.com</a>
-                                        </div>
-                                    </div>
+                                    <div class="small text-muted mt-1">Ответ в течение 24 часов</div>
                                 </div>
                             </div>
-    
+                        </div>
+        
+                        <!-- Дополнительный элемент: карта/ссылка на маршрут (современный UX) -->
+                        <div class="mt-4 pt-2 d-flex flex-wrap justify-content-between align-items-center gap-3">
+                            <a href="#" class="btn btn-outline-secondary rounded-pill py-2 px-4"
+                                style="border-color:#e0d8cc; color:#5a4a32; background: #fefcf8; font-weight:500; transition: all 0.2s;"
+                                onmouseover="this.style.backgroundColor='#B49C73'; this.style.color='white'; this.style.borderColor='#B49C73'"
+                                onmouseout="this.style.backgroundColor='#fefcf8'; this.style.color='#5a4a32'; this.style.borderColor='#e0d8cc'">
+                                <i class="fas fa-map-pin me-2"></i> Построить маршрут
+                            </a>
+                            <div class="trust-badge">
+                                <i class="fas fa-shield-heart" style="color:#B49C73;"></i>
+                                Конфиденциально · Лицензия № 02240/855
+                            </div>
                         </div>
                     </div>
-    
                 </div>
             </div>
         </div>
-    
     </div>
+    
+
+
+<script>
+    // Функция копирования с современным визуальным уведомлением
+    function copyToClipboard(text, buttonElement) {
+        // Используем современный Clipboard API
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(() => {
+                showCopyFeedback(buttonElement, true);
+            }).catch(() => {
+                fallbackCopy(text, buttonElement);
+            });
+        } else {
+            fallbackCopy(text, buttonElement);
+        }
+    }
+
+    function fallbackCopy(text, buttonElement) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        showCopyFeedback(buttonElement, true);
+    }
+
+    function showCopyFeedback(btn, success) {
+        const originalHtml = btn.innerHTML;
+        if (success) {
+            btn.innerHTML = '<i class="fas fa-check"></i> <span>Готово!</span>';
+            btn.style.color = '#B49C73';
+            setTimeout(() => {
+                btn.innerHTML = originalHtml;
+                btn.style.color = '#8f9aab';
+            }, 1800);
+        } else {
+            btn.innerHTML = '<i class="fas fa-times"></i> <span>Ошибка</span>';
+            setTimeout(() => {
+                btn.innerHTML = originalHtml;
+            }, 1500);
+        }
+    }
+    
+    // добавим лёгкую анимацию появления карточки (необязательно)
+    document.addEventListener('DOMContentLoaded', () => {
+        const card = document.querySelector('.lawyer-card-modern');
+        if(card) {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(12px)';
+            setTimeout(() => {
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 20);
+        }
+    });
+    
+    // Заглушка для ссылки "Построить маршрут" (можно открыть карты)
+    document.querySelector('.btn-outline-secondary')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        const address = encodeURIComponent('г. Новополоцк, ул. Молодежная, д. 146');
+        window.open(`https://maps.google.com/?q=${address}`, '_blank');
+    });
+</script>
+
 
 
     <!-- About Start -->
-    <div class="container-fluid py-5">
+    <!-- <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="row">
                 <div class="col-lg-5">
                     <img class="img-fluid rounded" src="img/vesi_1.jpg" alt="vesi">
                 </div>
-                <div class="col-lg-7 mt-4 mt-lg-0">
-                    <!-- <h2 class="position-relative text-center bg-white text-primary rounded p-3 mt-4 mb-4 d-none d-lg-block" style="width: 350px; margin-left: -205px;">25 лет опыта</h2> -->
-                    <h6 class="text-uppercase">Узнайте обо мне</h6>
+                <div class="col-lg-7 mt-4 mt-lg-0">                    
                     <h1 class="mb-4">Предоставляю услуги адвоката, оказываю юридическую помощь.</p>
-                    <!-- <a href="" class="btn btn-primary mt-2">Узнать больше</a> -->
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+    <div class="container-fluid py-5" style="background: #fafafa;">
+        <div class="container py-5">
+            <div class="row align-items-center g-5">
+                <!-- Блок с изображением -->
+                <div class="col-lg-5">
+                    <div class="position-relative">
+                        <img class="img-fluid rounded shadow-sm" src="img/vesi_1.jpg" alt="Адвокат">
+                    </div>
+                </div>
+    
+                <!-- Блок с текстом -->
+                <div class="col-lg-7">
+                    <!-- Вместо h1 можно использовать более легкий заголовок -->
+                    <p class="text-uppercase text-muted small fw-semibold tracking-wide mb-2">Юридическая защита</p>
+                    <h1 class="display-6 fw-light mb-4" style="letter-spacing: -0.02em; color: #1a1a1a;">
+                        Предоставляю услуги адвоката,<br>оказываю юридическую помощь.
+                    </h1>
+                    <p class="lead text-muted mb-4" style="font-weight: 400; font-size: 1.1rem;">
+                        Индивидуальный подход, конфиденциальность и полное сопровождение вашего дела.
+                    </p>
+    
+                    <!-- Кнопка CTA (опционально, для современного дизайна) -->
+                    <a href="#" class="btn btn-outline-dark rounded-pill px-4 py-2 mt-2">
+                        Обсудить дело
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-arrow-right-short ms-1" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M8.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.793 8 8.146 5.354a.5.5 0 0 1 0-.708z" />
+                            <path fill-rule="evenodd"
+                                d="M4 8a.5.5 0 0 1 .5-.5h6.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L11.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
@@ -668,6 +890,15 @@
         </div>
     </div> -->
     <!-- Testimonial End -->
+
+    <div class="map-card">
+        <div class="map-container">
+            <iframe
+                src="https://yandex.by/map-widget/v1/?ll=28.673425%2C55.525285&mode=whatshere&whatshere%5Bpoint%5D=28.672894%2C55.525114&whatshere%5Bzoom%5D=17&z=18.57"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
 
 
     <!-- Footer Start -->

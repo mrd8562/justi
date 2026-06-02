@@ -9910,3 +9910,53 @@ h4, h5, h6 {
   padding: 0;
   list-style-type: none;
 }
+
+
+.map-card {
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+
+.map-header {
+    padding: 25px 30px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+}
+
+.map-header h3 {
+    margin: 0 0 8px;
+    font-size: 24px;
+}
+
+.map-header p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 450px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .map-container {
+        height: 300px;
+    }
+
+    .map-header {
+        padding: 20px;
+    }
+
+    .map-header h3 {
+        font-size: 20px;
+    }
+}
